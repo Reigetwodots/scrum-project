@@ -1,18 +1,7 @@
 
 import { Table, Space } from "antd";
 import { useState } from "react";
-// function xinxinclick() {
-//     const style = {}
-//     const style1 = {
-
-//         color: '#dfd50c',
-//         fontSize: '20px'
-
-//     }
-//     return (
-//         style = { style1 }
-//     )
-// }
+import { Link } from "react-router-dom";
 
 // 点击收藏图标，图标变色
 const CollectIcon = () => {
@@ -24,7 +13,6 @@ const CollectIcon = () => {
         } else {
             setStyle({
                 color: '#dfd50c',
-                // fontSize: '20px'
             });
         }
     };
@@ -39,7 +27,6 @@ const columns = [
         title: (<div className="iconfont icon-shoucang" style={{ color: '#dfd50c' }}></div>),
         dataIndex: 'collect',
         key: 'collect',
-        // render: text => <div className="iconfont icon-shoucang shoucang-item"></div>,
         render: (text) => <CollectIcon />,
         width: '10%',
     },
@@ -47,7 +34,7 @@ const columns = [
         title: '项目名称',
         dataIndex: 'name',
         key: 'name',
-        render: text => <button style={{ fontSize: 16, color: '#0052cc', border: 'none', background: 'none', padding: '0', textDecoration: 'underline', cursor: 'pointer' }}>{text}</button>,
+        render: text => <Link to={'/project/1/kanban'}><button style={{ fontSize: 16, color: '#0052cc', border: 'none', background: 'none', padding: '0', textDecoration: 'none', cursor: 'pointer' }}>{text}</button></Link>,
         sorter: (a, b) => a.title - b.title,
         width: '30%'
     },
@@ -83,18 +70,6 @@ const data = [{
     owner: 'admin',
     created: '2021-07-07',
 }]
-
-// function get_data(list) {
-//     return list.map(item) => {
-//         return {
-//             collect: false,
-//             name: item.name,
-//             organization: item.organization,
-//             owner: item.owner,
-//             created: item.created,
-//         }
-//     }
-// }
 
 function ProjectTable() {
     // const data = get_data(list)

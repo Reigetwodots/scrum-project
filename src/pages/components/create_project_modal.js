@@ -5,9 +5,9 @@ import { Modal, Form, Input, Select } from 'antd';
 function CreateProjectModal() {
     const [form] = Form.useForm();
     const [isModalOpen, setIsModalOpen] = useState(false);
-    // const showModal = () => {
-    //     setIsModalOpen(true);
-    // };
+    const showModal = () => {
+        setIsModalOpen(true);
+    };
     const handleOk = () => {
         setIsModalOpen(false);
     };
@@ -17,6 +17,7 @@ function CreateProjectModal() {
 
     return (
         <>
+            <button onClick={showModal}>创建项目</button>
             <Modal
                 title="创建项目"
                 open={isModalOpen}

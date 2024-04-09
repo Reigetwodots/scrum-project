@@ -1,72 +1,22 @@
 import { Input, Select } from "antd"
 import ProjectTable from "./components/project_table"
 // import CreateProjectModal from "./components/create_project_modal"
-import { useState } from "react"
-import { Modal, Form } from 'antd';
-
+import CreateProjectModal from "./components/create_project_modal"
+import { useEffect } from "react"
 
 function Project() {
-    // function create_project_click() {
-    //     // console.log('创建项目')
-    // }
 
-    const [form] = Form.useForm();
-    const [isModalOpen, setIsModalOpen] = useState(false);
-    const showModal = () => {
-        setIsModalOpen(true);
-    };
-    const handleOk = () => {
-        setIsModalOpen(false);
-    };
-    const handleCancel = () => {
-        setIsModalOpen(false);
-    };
+    useEffect(() => {
+        console.log('发起请求API')
+
+    }, [])
 
     return (
         <div className='project_body_wrap'>
             <div className='project_title_wrap'>
                 <h1>项目列表</h1>
                 <>
-                    <button onClick={showModal}>创建项目</button>
-                    <Modal
-                        title="创建项目"
-                        open={isModalOpen}
-                        okText='创建项目'
-                        onOk={handleOk}
-                        onCancel={handleCancel}>
-                        <Form
-                            name="basic"
-                            autoComplete="off"
-                            form={form}
-                        >
-                            <Form.Item
-                                label="项目名称"
-                                name="name"
-                                rules={[{ required: true, message: '请输入项目名称' }]}
-                            >
-                                <Input />
-                            </Form.Item>
-
-                            <Form.Item
-                                label="所在部门"
-                                name="organization"
-                                rules={[{ required: true, message: '请选择部门' }]}
-                            >
-                                <Select>
-
-                                </Select>
-                            </Form.Item>
-                            <Form.Item
-                                label="负责人"
-                                name="owner"
-                                rules={[{ required: true, message: '请选择负责人' }]}
-                            >
-                                <Select>
-
-                                </Select>
-                            </Form.Item>
-                        </Form>
-                    </Modal>
+                    <CreateProjectModal></CreateProjectModal>
                 </>
             </div>
             <div className='project_search_wrap'>

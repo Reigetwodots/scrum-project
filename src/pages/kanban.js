@@ -1,7 +1,6 @@
-
-
 import SearchForm from "./components/search_form";
-
+import DropCp from "./components/drop";
+import "./css/drop.css"
 function Kanban() {
     return (
         <div className="kanban_body">
@@ -10,7 +9,7 @@ function Kanban() {
             </div>
             <SearchForm />
             <div className="drop_wrap">
-
+                <DropCp />
             </div>
         </div>
     );
